@@ -16,5 +16,7 @@
     <li>@Html.ActionLink($"{animal.Type}", "Details", new { id = animal.AnimalId })</li>
   }
 </ul>
-
+  <a name="type">@Html.ActionLink("Sort by type","Index", "Animals", new {sortBy = "type"})</a><br>
+  <a name="date">@Html.ActionLink("Sort by date", "Index", "Animals", new {sortBy = "date"})</a>
+<br><br>
 <p>@Html.ActionLink("Add new animal", "Create")</p>

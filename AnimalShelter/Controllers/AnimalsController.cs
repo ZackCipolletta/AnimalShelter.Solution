@@ -14,12 +14,26 @@ namespace AnimalShelter.Controllers
       _db = db;
     }
 
-    public ActionResult Index()
-    {
-      List<Animal> model = _db.Animals.ToList();
-      return View(model);
-    }
 
+    public ActionResult Index(string sortBy)
+    {
+      List<Animal> model = null;
+      if (sortBy == null)
+      {
+        model = _db.Animals.ToList();
+      }
+      else if (sortBy.Equals("date"))
+      {
+        Console.WriteLine("ENTERED DATE @@@@@@@@@@@@@@@@@@@@@@@");
+        model = _db.Animals.OrderBy(animal => animal.DateOfAdmittance).ToList();
+      }
+      else if (sortBy.Equals("type"))
+      {
+        //sort by Type
+        model = _db.Animals.OrderBy(animal => animal.Type).ToList();
+      }
+      return View("Index", model);
+    }
     public ActionResult Create()
     {
       return View();
