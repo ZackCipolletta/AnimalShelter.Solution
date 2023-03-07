@@ -13,7 +13,7 @@ namespace AnimalShelter
 
       builder.Services.AddControllersWithViews();
 
-      builder.Services.AddDbContext<ToDoListContext>(
+      builder.Services.AddDbContext<AnimalShelterContext>(
         dbContextOptions => dbContextOptions
           .UseMySql(
             builder.Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(builder.Configuration["ConnectionStrings:DefaultConnection"]
