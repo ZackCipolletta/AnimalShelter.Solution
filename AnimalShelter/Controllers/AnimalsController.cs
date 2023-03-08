@@ -14,7 +14,6 @@ namespace AnimalShelter.Controllers
       _db = db;
     }
 
-
     public ActionResult Index(string sortBy)
     {
       List<Animal> model = null;
@@ -24,7 +23,6 @@ namespace AnimalShelter.Controllers
       }
       else if (sortBy.Equals("date"))
       {
-        Console.WriteLine("ENTERED DATE @@@@@@@@@@@@@@@@@@@@@@@");
         model = _db.Animals.OrderBy(animal => animal.DateOfAdmittance).ToList();
       }
       else if (sortBy.Equals("type"))

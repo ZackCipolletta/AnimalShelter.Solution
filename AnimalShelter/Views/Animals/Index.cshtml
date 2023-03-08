@@ -13,7 +13,7 @@
 <ul>
   @foreach(Animal animal in Model)
   {
-    <li>@Html.ActionLink($"{animal.Type}", "Details", new { id = animal.AnimalId })</li>
+    <li>@Html.ActionLink($"{animal.Type}", "Details", new { id = animal.AnimalId } ) - @($"{animal.DateOfAdmittance.ToShortDateString()}")</li>
   }
 </ul>
   <a name="type">@Html.ActionLink("Sort by type","Index", "Animals", new {sortBy = "type"})</a><br>
